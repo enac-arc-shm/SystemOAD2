@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 # Cuando se recibe una petición, obtiene los valores de los parámetros "subnet", 
 # "range_start" y "range_end" y llama a la función "generate_dhcp_compose" con estos valores
+
 @app.route('/dhcp', methods=['POST'])
 def generate_dhcp():
     subnet = request.form['subnet']

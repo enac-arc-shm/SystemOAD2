@@ -2,7 +2,7 @@
 import yaml
 import os
 
-#recibe como parámetros la dirección de subred, el primer y último valor del rango de direcciones IP ("range_start" y "range_end")
+# recibe como parámetros la dirección de subred, el primer y último valor del rango de direcciones IP ("range_start" y "range_end")
 def generate_dhcp_compose(subnet, range_start, range_end):
     compose_data = {
         "version": "3",
