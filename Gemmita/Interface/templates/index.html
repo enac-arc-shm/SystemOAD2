@@ -312,7 +312,7 @@
 											responsive: true,
 											title: {
 												display: true,
-												text: 'Creating Real-Time Charts with Flask'
+												text: 'Numeros aleatorios'
 											},
 											tooltips: {
 												mode: 'index',
@@ -372,63 +372,15 @@
 										lineChart.update();
 									}
 						
-									 const config2 = {
-										type: 'line',
-										data: {
-											labels: Array(30).fill("0000-00-00 00:00:00"),
-											datasets: [{
-												label: "CPU PORCETN",
-												backgroundColor: 'rgb(255, 99, 132)',
-												borderColor: 'rgb(255, 99, 132)',
-												data: [],
-												fill: false,
-											}]
-										},
-										options: {
-											responsive: true,
-											title: {
-												display: true,
-												text: 'CPU usado'
-											},
-											tooltips: {
-												mode: 'index',
-												intersect: false,
-											},
-											hover: {
-												mode: 'nearest',
-												intersect: true
-											},
-											scales: {
-												xAxes: [{
-													display: true,
-													scaleLabel: {
-														display: true,
-														labelString: 'Time'
-													}
-												}],
-												yAxes: [{
-													display: true,
-													scaleLabel: {
-														display: true,
-														labelString: 'Valoresssss'
-													}
-												}]
-											}
-										
-										
-										
-										
-										}
 						
-									 };
 									 const config3 = {
 										type: 'line',
 										data: {
 											labels: Array(30).fill("0000-00-00 00:00:00"),
 											datasets: [{
-												label: "Random Dataseeet",
-												backgroundColor: 'rgb(255, 99, 132)',
-												borderColor: 'rgb(255, 99, 132)',
+												label: "CPU",
+												backgroundColor: 'rgb(137, 55, 95)',
+												borderColor: 'rgb(206, 89, 89)',
 												data: Array(30).fill(),
 												fill: false,
 											}]
@@ -437,7 +389,7 @@
 											responsive: true,
 											title: {
 												display: true,
-												text: 'Creating Real-Time Charts with Flask'
+												text: 'CPU usada'
 											},
 											tooltips: {
 												mode: 'index',
@@ -452,14 +404,14 @@
 													display: true,
 													scaleLabel: {
 														display: true,
-														labelString: 'Time'
+														labelString: 'Tiempo'
 													}
 												}],
 												yAxes: [{
 													display: true,
 													scaleLabel: {
 														display: true,
-														labelString: 'Valoresssss'
+														labelString: 'CPU en porcentaje'
 													}
 												}]
 											}

@@ -1,11 +1,24 @@
+from flask import Flask
+from flask import render_template
+import matplotlib.pyplot as plt
+import numpy as np
+
 from flask import Flask, config, render_template, request, Response ,stream_with_context
-import time
+import pandas as pd
 import json
-import psutil 
-from datetime import datetime
-import random
+import psutil
+from time import time
+from flask import Flask, render_template, make_response
 from random import random
-from random import random, randrange
+import time
+import random 
+from datetime import datetime
+import matplotlib.pyplot as plt
+from datetime import datetime
+from matplotlib import pyplot
+from matplotlib.animation import FuncAnimation
+from random import randrange
+import time
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,6 +35,7 @@ def whatsapp():
     return render_template('whatsapp.html')
 
 @app.route('/chart-data')
+#Aquí se mandan los datos para generar una grafica con numeros aleatorios
 def chart_data():
     def generate_random_data():
         while True:
@@ -36,6 +50,7 @@ def chart_data():
     return response
 
 @app.route('/chart-data2')
+#Aquí se mandan los datos para generar una grafica con el porcentaje de CPU usada, la cual se manda cada 4 segundos
 def chart_data2():
     def display_usage(cpu_usage,mem_usage,bars=50):
         cpu_use = (cpu_usage) 
