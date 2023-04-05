@@ -19,6 +19,8 @@ from matplotlib import pyplot
 from matplotlib.animation import FuncAnimation
 from random import randrange
 import time
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -65,7 +67,7 @@ def chart_data2():
                     'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 
                     'value': cpuu})
             yield f"data:{json_data2}\n\n"
-            time.sleep(4)
+            time.sleep(1)
 
     response = Response(stream_with_context(generate_random_data2()), mimetype="text/event-stream")
     return response
