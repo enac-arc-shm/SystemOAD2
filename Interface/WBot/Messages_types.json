@@ -1,0 +1,158 @@
+
+Normal message
+{'object': 'whatsapp_business_account', 'entry': [{'id': '115068651521216', 'changes': [{'value': {'messaging_product': 'whatsapp', 'metadata': {'display_phone_number': '15550859481', 'phone_number_id': '107311828972865'}, 'contacts': [{'profile': {'name': 'UTTT'}, 'wa_id': '5217731922477'}], 'messages': [{'from': '5217731922477', 'id': 'wamid.HBgNNTIxNzczMTkyMjQ3NxUCABIYIEFFQ0IzNDZBMDczM0U2MkJCMENDMEM4QjUzQjQyQTYxAA==', 'timestamp': '1679810681', 'text': {'body': 'Hola mundo'}, 'type': 'text'}]}, 'field': 'messages'}]}]}
+
+reply button
+{'object': 'whatsapp_business_account', 'entry': [{'id': '115068651521216', 'changes': [{'value': {'messaging_product': 'whatsapp', 'metadata': {'display_phone_number': '15550859481', 'phone_number_id': '107311828972865'}, 'contacts': [{'profile': {'name': 'UTTT'}, 'wa_id': '5217731922477'}], 'messages': [{'context': {'from': '15550859481', 'id': 'wamid.HBgNNTIxNzczMTkyMjQ3NxUCABEYEkU3OUMwQzcxOUE1RUM3NjVBRAA='}, 'from': '5217731922477', 'id': 'wamid.HBgNNTIxNzczMTkyMjQ3NxUCABIYIEEzMENFNzRGRUE1OTk4MkNEM0JCOUE0OUNBNTg0MkZGAA==', 'timestamp': '1679810730', 'type': 'interactive', 'interactive': {'type': 'button_reply', 'button_reply': {'id': 'b2', 'title': 'Restart -h now ALMA'}}}]}, 'field': 'messages'}]}]}
+
+select button 
+{'object': 'whatsapp_business_account', 'entry': [{'id': '115068651521216', 'changes': [{'value': {'messaging_product': 'whatsapp', 'metadata': {'display_phone_number': '15550859481', 'phone_number_id': '107311828972865'}, 'contacts': [{'profile': {'name': 'UTTT'}, 'wa_id': '5217731922477'}], 'messages': [{'context': {'from': '15550859481', 'id': 'wamid.HBgNNTIxNzczMTkyMjQ3NxUCABEYEjM5NDYwOUY0MDI4MjUyRkM0QwA='}, 'from': '5217731922477', 'id': 'wamid.HBgNNTIxNzczMTkyMjQ3NxUCABIYIDk3QzlBMTI2QUExNzlFNDlGODE2QUI1MDIxQUJCNTczAA==', 'timestamp': '1679810777', 'type': 'interactive', 'interactive': {'type': 'list_reply', 'list_reply': {'id': 'row 2', 'title': 'systemctl restart httpd', 'description': 'Reload the service'}}}]}, 'field': 'messages'}]}]}
+
+
+
+//Normal message
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "115068651521216",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550859481",
+                            "phone_number_id": "107311828972865"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "UTTT"
+                                },
+                                "wa_id": "5217731922477"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "from": "5217731922477",
+                                "id": "wamid.HBgNNTIxNzczMTkyMjQ3NxUCABIYIEFFQ0IzNDZBMDczM0U2MkJCMENDMEM4QjUzQjQyQTYxAA==",
+                                "timestamp": "1679810681",
+                                "text": {
+                                    "body": "Hola mundo"
+                                },
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}
+
+
+
+
+
+reply button
+
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "115068651521216",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550859481",
+                            "phone_number_id": "107311828972865"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "UTTT"
+                                },
+                                "wa_id": "5217731922477"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "context": {
+                                    "from": "15550859481",
+                                    "id": "wamid.HBgNNTIxNzczMTkyMjQ3NxUCABEYEkU3OUMwQzcxOUE1RUM3NjVBRAA="
+                                },
+                                "from": "5217731922477",
+                                "id": "wamid.HBgNNTIxNzczMTkyMjQ3NxUCABIYIEEzMENFNzRGRUE1OTk4MkNEM0JCOUE0OUNBNTg0MkZGAA==",
+                                "timestamp": "1679810730",
+                                "type": "interactive",
+                                "interactive": {
+                                    "type": "button_reply",
+                                    "button_reply": {
+                                        "id": "b2",
+                                        "title": "Restart -h now ALMA"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}
+
+
+select button 
+
+{
+    "object": "whatsapp_business_account",
+    "entry": [
+        {
+            "id": "115068651521216",
+            "changes": [
+                {
+                    "value": {
+                        "messaging_product": "whatsapp",
+                        "metadata": {
+                            "display_phone_number": "15550859481",
+                            "phone_number_id": "107311828972865"
+                        },
+                        "contacts": [
+                            {
+                                "profile": {
+                                    "name": "UTTT"
+                                },
+                                "wa_id": "5217731922477"
+                            }
+                        ],
+                        "messages": [
+                            {
+                                "context": {
+                                    "from": "15550859481",
+                                    "id": "wamid.HBgNNTIxNzczMTkyMjQ3NxUCABEYEjM5NDYwOUY0MDI4MjUyRkM0QwA="
+                                },
+                                "from": "5217731922477",
+                                "id": "wamid.HBgNNTIxNzczMTkyMjQ3NxUCABIYIDk3QzlBMTI2QUExNzlFNDlGODE2QUI1MDIxQUJCNTczAA==",
+                                "timestamp": "1679810777",
+                                "type": "interactive",
+                                "interactive": {
+                                    "type": "list_reply",
+                                    "list_reply": {
+                                        "id": "row 2",
+                                        "title": "systemctl restart httpd",
+                                        "description": "Reload the service"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "field": "messages"
+                }
+            ]
+        }
+    ]
+}
