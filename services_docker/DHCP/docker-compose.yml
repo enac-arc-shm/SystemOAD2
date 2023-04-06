@@ -1,0 +1,22 @@
+version: '3.10'
+services:
+  dhcp:
+    image: networkboot/dhcpd
+    volumes:
+      - ./dhcpd.conf:/etc/dhcp/dhcpd.conf
+    environment:
+      SUBNET: "{{ subnet }}"
+      RANGE_START: "{{ start_ip }}"
+      RANGE_END: "{{ end_ip }}"
+      SUBNET_MASK: "{{ subnet_mask }}"
+    restart: always
+
+networks:
+  dhcp_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "{{ subnet }}/{{ subnet_mask }}"
+          gateway: "{{ gateway }}"
+

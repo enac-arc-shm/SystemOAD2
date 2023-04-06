@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate DHCP</title>
+</head>
+<body>
+    <h1>Generate DHCP configuration</h1>
+    <form action="{{ url_for('generate_dhcp') }}" method="POST">
+        <label for="subnet">Subnet:</label>
+        <input type="text" id="subnet" name="subnet"><br><br>
+        <label for="gateway">Gateway:</label>
+        <input type="text" id="gateway" name="gateway"><br><br>
+        <label for="start_ip">Start IP:</label>
+        <input type="text" id="start_ip" name="start_ip"><br><br>
+        <label for="end_ip">End IP:</label>
+        <input type="text" id="end_ip" name="end_ip"><br><br>
+        <label for="subnet_mask">Subnet Mask:</label>
+        <input type="text" id="subnet_mask" name="subnet_mask"><br><br>
+        <input type="submit" value="Generar">
+    </form>
+</body>
+</html>
