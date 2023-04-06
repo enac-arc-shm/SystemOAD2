@@ -1,0 +1,18 @@
+version: "3.10"
+services:
+  ftp:
+    image: fauria/vsftpd:latest
+    restart: always
+    ports:
+      - "20:20"
+      - "21:21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - ./vsftpd.conf:/etc/vsftpd.conf
+      - ./data:/home/vsftpd
+    environment:
+      - FTP_USER={{ ftp_username }}
+      - FTP_PASS={{ ftp_password }}
+      - PASV_ADDRESS={{ ftp_domain }}
+    tty: true
+    stdin_open: true

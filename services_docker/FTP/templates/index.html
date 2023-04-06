@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Generar servidor FTP</title>
+  </head>
+  <body>
+    <h1>Generar servidor FTP</h1>
+    <form action="/generate-ftp" method="POST">
+      <label for="ftp_user">Usuario FTP:</label>
+      <input type="text" id="ftp_user" name="ftp_user"><br><br>
+      <label for="ftp_password">Contraseña FTP:</label>
+      <input type="password" id="ftp_password" name="ftp_password"><br><br>
+      <label for="domain_name">Nombre de dominio:</label>
+      <input type="text" id="domain_name" name="domain_name"><br><br>
+      <button type="submit">Generar</button>
+    </form>
+  </body>
+</html>

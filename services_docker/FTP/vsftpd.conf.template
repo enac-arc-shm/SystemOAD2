@@ -1,0 +1,35 @@
+# Allow anonymous FTP? (Disabled by default)
+anonymous_enable=NO
+
+# Allow local users to log in? (Enabled by default)
+local_enable=YES
+
+# Allow virtual users to log in? (Disabled by default)
+# virtual_use_local_privs=YES
+# guest_enable=YES
+# guest_username=ftp
+
+# Should uploaded files be writeable by the FTP server? (Disabled by default)
+write_enable=YES
+
+# Local users will be 'jailed' within their home directory (Enabled by default)
+chroot_local_user=YES
+
+# Listen on IPv4 and IPv6
+listen=YES
+listen_ipv6=YES
+
+# Use FTP over TLS? (Disabled by default)
+ssl_enable=NO
+# ssl_cert_file=/etc/ssl/private/vsftpd.crt
+# ssl_key_file=/etc/ssl/private/vsftpd.key
+
+# FTP username and password
+userlist_file=/etc/vsftpd.userlist
+userlist_enable=YES
+userlist_deny=NO
+{{ ftp_username }} 
+{{ ftp_password }}
+
+# FTP domain
+virtual_host={{ ftp_domain }}
