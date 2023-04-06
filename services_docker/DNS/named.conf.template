@@ -1,0 +1,15 @@
+options {
+    directory "/var/cache/bind";
+    allow-query { any; };
+    recursion yes;
+};
+
+zone "{{ forward_zone }}" IN {
+    type master;
+    file "/etc/bind/forward.{{ domain_name }}.zone";
+};
+
+zone "{{ reverse_zone }}" IN {
+    type master;
+    file "/etc/bind/reverse.{{ domain_name }}.zone";
+};

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  bind:
+    image: networkboot/bind9:latest
+    container_name: bind
+    restart: always
+    volumes:
+      - ./data:/data
+    environment:
+      DOMAIN_NAME: "example.com"
+      FORWARD_ZONE: "{{ forward_zone }}"
+      REVERSE_ZONE: "{{ reverse_zone }}"

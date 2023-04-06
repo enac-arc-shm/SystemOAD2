@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Configuración DNS</title>
+  </head>
+  <body>
+    <h1>Configuración DNS</h1>
+    <form method="POST" action="/generate-dns">
+      <label for="domain_name">Nombre de dominio:</label>
+      <input type="text" name="domain_name"><br>
+
+      <label for="forward_zone">Zona directa:</label>
+      <input type="text" name="forward_zone"><br>
+
+      <label for="reverse_zone">Zona inversa:</label>
+      <input type="text" name="reverse_zone"><br>
+
+      <button type="submit">Iniciar servidor DNS</button>
+    </form>
+  </body>
+</html>
