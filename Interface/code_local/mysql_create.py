@@ -40,6 +40,15 @@ try:
     """)
     print("Tabla servicescreada exitosamente")
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS containers (
+            id VARCHAR(20) NOT NULL,
+            name VARCHAR(100) NOT NULL,
+            PRIMARY KEY (id)
+        ) ENGINE=InnoDB
+    """)
+    print("Tabla containers exitosamente")
+
 except mysql.connector.Error as err:
     print(f"Error al crear la tabla: {err}")
     exit(1)

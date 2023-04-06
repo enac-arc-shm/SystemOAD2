@@ -27,11 +27,19 @@ def obtain_data_register(conection, table, id):
     return registro
 
 
-def delete_record_cellphone(conection, table, id):
+def delete_record_db(conection, table, id):
     # Obtener registro de una tabla con id
     mycursor = conection.cursor()
     mycursor.execute(f"DELETE FROM {table} WHERE id = {id}")
     conection.commit()
+
+
+def delete_record_db_container(conection, table, id):
+    # Obtener registro de una tabla con id
+    mycursor = conection.cursor()
+    mycursor.execute(f"DELETE FROM {table} WHERE id = '{id}'")
+    conection.commit()
+
 
 def insert_record_cellphone(conection, table, name, number):
     # Obtener registro de una tabla con id
@@ -41,6 +49,21 @@ def insert_record_cellphone(conection, table, name, number):
     conection.commit()
     return registro
 
-if __name__ == '__main__':
-    conexion = conexion_db()
-    obtain_data_table(conexion, "cellphones")
+
+def insert_record_service(conection, table, name, priority):
+    # Obtener registro de una tabla con id
+    mycursor = conection.cursor()
+    mycursor.execute(f"INSERT INTO {table} (name, priority) VALUES ('{name}', {priority})")
+    registro = mycursor.fetchone()
+    conection.commit()
+    return registro
+
+def insert_record_container(conection, table, id, name):
+    # Obtener registro de una tabla con id
+    mycursor = conection.cursor()
+    mycursor.execute(f"INSERT INTO {table} (id, name) VALUES ('{id}', '{name}')")
+    registro = mycursor.fetchone()
+    conection.commit()
+    return registro
+
+

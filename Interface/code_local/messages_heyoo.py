@@ -37,7 +37,7 @@ class WhatsappService:
 
     @classmethod
     def objectMessageWa(self):
-        token = 'EAACrEJCbRiIBAGSl6CdaZBgJUARr9oOm9iAScRKbxc35CZCRZAj6ud2KmLApJDBn2hqddHVOU8ndUZC3dUFWuWSfpxYUhQfU1uxxUhYZCxLOMTFgPaVJCgbIR8fTCgtWLnUXCPx1tFN8oFzcmFFp0dZAZAv0C2AWo2UZB1i2X8uyKbxjDEwNxbWeaDHGMziCt6jvZBi2ZAMADPH2tny6wz2gtb'
+        token = 'EAACrEJCbRiIBAAvAqsp7kL15YmMHq3pQK9zMpFZBLJ4n4AXBkltM8HZBcRWO3KHLKKHdfB9GtyiFzhcXCE7TbY9y5jJoUgoZBsjS9ZB8EuvUE7xRrPae2fUaMRNw5nadYitjY9xW897Co4p1ggVX6EzqqQ2ZAkkrnBb36g5IkTnEy8IbqyuX3CFkn2OZA0wRZBU88AnCLNdvaTqmKvEEC3l'
         idNumCellphone = '107311828972865'
         return WhatsApp(token,idNumCellphone)
     

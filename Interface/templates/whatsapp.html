@@ -266,8 +266,7 @@
 								<ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 									<li><a class="nav-link text-left active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Cellphones</a></li>
 									<li><a class="nav-link text-left" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Local services</a></li>
-									<li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">containers</a></li>
-									<li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a></li>
+									<li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Containers</a></li>
 								</ul>
 							</div>
 							<div class="col-md-9 col-sm-12">
@@ -312,7 +311,7 @@
 																					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																				</div>
 																				<div class="modal-body">
-																					<form method="POST" action="{{ url_for('writte_message', id=cellphone[0]) }}">
+																					<form method="POST" action="{{ url_for('writte_message')}}">
 																						<div class="form-group">
 																							<label for="recipient-name" class="col-form-label">To:</label>
 																							<input type="text" class="form-control" id="recipient-name" name="user_recibe">
@@ -320,6 +319,7 @@
 																						<div class="form-group">
 																							<label for="message-text" class="col-form-label">Message:</label>
 																							<textarea class="form-control" id="message-text" name="message"></textarea>
+																							<input type="text" style="display:none;" name="id" value="{{cellphone[0]}}">
 																						</div>
 						
 																						<div class="modal-footer">
@@ -332,8 +332,9 @@
 																		</div>
 																	</div>
 																</td>
-															<td>
-																<a class="btn btn-outline-danger" href="{{ url_for('delete_cellphone', id=cellphone[0]) }}">Delete   <i class="mr-2" data-feather="slash"></i></a>																</td>
+																<td>
+																	<a class="btn btn-outline-danger" href="{{ url_for('delete_cellphone', id=cellphone[0]) }}">Delete   <i class="mr-2" data-feather="slash"></i></a>																
+																</td>
 															</tr>
 															{% endfor %}
 														</tbody>
@@ -375,14 +376,13 @@
 											</div>
 										</div>
 									</div>
+									
 									<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-										 <!-- [ form-element ] start -->
-										 <div class="col-sm-6">
 											<!-- Basic Inputs -->
 											<div class="card">
 												<div class="card-header">
-													<h5>Basic Table</h5>
-													<span class="d-block m-t-5">use class <code>table</code> inside table element</span>
+													<h5> Monitored systemctl services local</h5>
+													<span class="d-block m-t-5">Use button <code>send message</code> to provide list menu to all cellphone numbers</span>
 												</div>
 												<div class="card-body table-border-style">
 													<div class="table-responsive">
@@ -390,50 +390,147 @@
 															<thead>
 																<tr>
 																	<th>#</th>
-																	<th>First Name</th>
-																	<th>Last Name</th>
-																	<th>Username</th>
+																	<th>Name service</th>
+																	<th>Priority</th>
+																	<th>Delete</th>
 																</tr>
 															</thead>
 															<tbody>
+																{% for service in services_db %}
 																<tr>
-																	<td>1</td>
-																	<td>Mark</td>
-																	<td>Otto</td>
-																	<td>@mdo</td>
+																	<td>{{ service[0] }}</td>
+																	<td>{{ service[1] }}</td>
+																	<td>{{ service[2] }}</td>
+																	<td>
+																		<a class="btn btn-outline-danger" href="{{ url_for('delete_service', id=service[0]) }}">Delete   <i class="mr-2" data-feather="slash"></i></a>	
+																	</td>
 																</tr>
-																<tr>
-																	<td>2</td>
-																	<td>Jacob</td>
-																	<td>Thornton</td>
-																	<td>@fat</td>
-																</tr>
-																<tr>
-																	<td>3</td>
-																	<td>Larry</td>
-																	<td>the Bird</td>
-																	<td>@twitter</td>
-																</tr>
+																{% endfor %}
 															</tbody>
 														</table>
 													</div>
 												</div>
 											</div>
-										<!-- [ form-element ] start -->	
+											<div class="card-header" id="headingTwo">
+												<h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add service </a></h5>
+											</div>
+											<div id="collapseTwo" class="collapse card-body" aria-labelledby="headingTwo" data-parent="#accordionExample">
+												<!-- Basic Inputs -->
+												<div class="card">
+													<div class="card-body">
+													<form method="POST" action="{{ url_for('insert_service') }}">
+														<div class="form-group">
+															<label>Name Service </label>
+															<input type="text" name="name" class="form-control" placeholder="Enter name service" required>
+														</div>
+														<div class="form-group">
+															<label>Priority</label>
+															<input type="number" name="priority" class="form-control" placeholder="Enter the level of priority" required  onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 9 || event.keyCode === 13 || event.keyCode === 37 || event.keyCode === 39">
+															<small>The Priority is the level of importance in a scale of 1 - 3</small>
+														</div>
+														</div>
+														<div class="card-footer">
+															<input type="submit" class="btn btn-primary mr-2" value="Submit">
+															<button type="reset" class="btn btn-light" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Close</button>
+														</div>
+													</form>
+												</div>
+												<div class="card">
+													<div class="card-header" id="headingOne">
+														<h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">See available services</a></h5>
+													</div>
+													<div id="collapseOne" class=" card-body collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+														<div class="table-responsive">
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th>Name service</th>
+																		<th>Status</th>
+																		<th>Vendor</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	{% for service in services_ssh %}
+																	<tr>
+																		<td>{{ service['service'] }}</td>
+																		<td>{{ service['status'] }}</td>
+																		<td>{{ service['Vendor'] }}</td>
+																	</tr>
+																	{% endfor %}
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+									</div>
+								<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+										<!-- Basic Inputs -->
+									<div class="card">
+									<div class="card-header">
+										<h5> Monitored systemctl services local</h5>
+										<span class="d-block m-t-5">Use button <code>send message</code> to provide list menu to all cellphone numbers</span>
+									</div>
+									<div class="card-body table-border-style">
+										<div class="table-responsive">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>ID</th>
+														<th>Name container</th>
+														<th>Delete</th>
+													</tr>
+												</thead>
+												<tbody>
+													{% for container in containers_db %}
+													<tr>
+														<td>{{ container[0] }}</td>
+														<td>{{ container[1] }}</td>
+														<td>
+															<a class="btn btn-outline-danger" href="{{ url_for('delete_container', id=container[0] )}}">Delete   <i class="mr-2" data-feather="slash"></i></a>	
+														</td>
+													</tr>
+													{% endfor %}
+												</tbody>
+											</table>
 										</div>
 									</div>
-									<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-										<p class="mb-0">Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit
-											nostrud magna
-											nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
-									</div>
-									<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-										<p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
-											duis
-											aliqua do.
-											Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
-											eiusmod.
-										</p>
+								</div>
+								<div class="card-header" id="headingTwo">
+									<h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add container </a></h5>
+								</div>
+								<div id="collapseTwo" class="collapse card-body" aria-labelledby="headingTwo" data-parent="#accordionExample">
+										<!-- Basic Inputs -->
+									<div class="card">
+											<div class="table-responsive">
+												<table class="table">
+													<thead>
+														<tr>
+															<th>ADD CONTAINER</th>
+															<th>ID</th>
+															<th>CREATED</th>
+															<th>NAME</th>
+															<th>STATUS</th>
+															<th>PORTS</th>
+														</tr>
+													</thead>
+													<tbody>
+														{% for container in containers_ssh %}
+														<tr>
+															<td>
+																<a class="btn  btn-outline-primary" href="{{ url_for('insert_container', id=container['ID'], name=container['NAME']) }}"> Add container </a>	
+															</td>
+															<td>{{ container['ID'] }}</td>
+															<td>{{ container['CREATED'] }}</td>
+															<td>{{ container['NAME'] }}</td>
+															<td>{{ container['STATUS'] }}</td>
+															<td>{{ container['PORTS'] }}</td>
+														</tr>
+														{% endfor %}
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
