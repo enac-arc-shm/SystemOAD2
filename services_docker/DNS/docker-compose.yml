@@ -1,7 +1,7 @@
-version: '3'
+version: '3.10'
 services:
   bind:
-    image: networkboot/bind9:latest
+    image: networkboot/bind9:latest 
     container_name: bind
     restart: always
     volumes:
