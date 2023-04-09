@@ -1,5 +1,6 @@
 from urllib import response
-from flask import Flask, render_template, request
+from flask import Flask
+from flask import render_template
 import subprocess
 import ipaddress 
 
