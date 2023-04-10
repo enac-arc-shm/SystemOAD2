@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request,jsonify
 from code_local.system_controller import (
     obtain_mysql_data_cellphones, 
     send_message, system_message, 
@@ -13,6 +13,7 @@ from code_local.system_controller import (
     system_insert_container,
     system_delete_container
 )
+from code_local.conexion_ssh import generales, chartdata7
 
 app = Flask(__name__)
 
@@ -90,6 +91,43 @@ def insert_cellphone():
 def insert_container(id, name):
     system_insert_container(id, name)
     return redirect(url_for('whatsapp'))
+
+###################3
+@app.route('/chart-data1')
+def chartdata1():
+    cad='cat /var/log/messages | grep "DHCPDISCOVER" | grep "'
+    return jsonify(generales(cad))
+
+@app.route('/chart-data2')
+def chartdata2():
+    cad='cat /var/log/messages | grep "DHCPACK" | grep '
+    return jsonify(generales(cad))
+   
+@app.route('/chart-data3')
+def chartdata3():
+    cad='cat /var/log/messages | grep "stopping" | grep '
+    return jsonify(generales(cad))
+
+@app.route('/chart-data4')
+def chartdata4():
+    cad='cat /var/log/messages | grep "named.*error" | grep '
+    return jsonify(generales(cad))
+
+@app.route('/chart-data5')
+def chartdata5():
+    cad='cat /var/log/httpd/access_log | grep "HTTP" | grep "404" | grep '
+    return jsonify(generales(cad))
+
+@app.route('/chart-data6')
+def chartdata6():
+    cad='cat /var/log/httpd/access_log | grep "HTTP" | grep "200" | grep '
+    return jsonify(generales(cad))
+
+@app.route('/chart-data7')
+def chartdataa7():
+    return jsonify(chartdata7)
+
+
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',debug=True, port=4000)

@@ -6,7 +6,7 @@ import time
 from colorama import Fore
 from paramiko.client import SSHClient
 import re 
-
+from flask import Flask, jsonify
 
 def get_services_list(con):
     services_enabled_local = query_device(con, "systemctl list-unit-files --type service --all | grep enabled")
@@ -72,6 +72,43 @@ def containers_analisys(con, containers):
         diccionario_containers['PORTS'] = query_device(con, command)
         lista_containers.append(diccionario_containers.copy())
     return lista_containers
+##########################################33
+def generales(cad):
+    connec = conection()
+    months=["Dic","Jan","Feb","Mar","Apr"]
+    valuessd=[]
+    for mes in months:
+        #cad='cat /var/log/messages | grep "DHCPDISCOVER" | grep "{}" | wc -l'.format(mes)
+        cad = cad,'"{}" | wc -l'.format(mes)
+        resol = query_device(connec,cad)
+        resol='{}'.format(resol.rstrip())
+        valuessd.append(resol)
+    jsonnn={
+        "mes":months,
+        "value":valuessd
+    } 
+    #print(jsonnn)
+    return jsonnn
+
+def chartdata7():
+    connec = conection()
+    usersserv=["ana","vero","agmv"]
+    valuesu=[]
+    for user in usersserv:
+        cad='cat /var/log/xferlog-20230221 | grep "{} ftp" | wc -l'.format(user)
+        users = query_device(connec,cad)
+        users='{}'.format(int(users.rstrip()))
+        valuesu.append(users)
+    jsonnn={
+        "user":usersserv,
+        "value":valuesu
+    }
+    return jsonnn
+
+
+
+
+
 
 
 if __name__ == '__main__':
