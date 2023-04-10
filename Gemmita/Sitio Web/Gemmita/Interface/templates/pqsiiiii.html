@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi Página HTML</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <canvas id="myChart"></canvas>
+    <script>
+      fetch('/chart-data3')
+        .then(response => response.json())
+        .then(data => {
+          const ctx = document.getElementById('myChart').getContext('2d');
+          const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'My Dataset',
+                data: data.values,
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                xAxes: [{
+                  type: 'time'
+                }]
+              }
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
