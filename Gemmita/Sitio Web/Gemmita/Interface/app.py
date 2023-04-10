@@ -32,9 +32,14 @@ def conection():
     conection.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     conection.connect("192.168.43.137", username=user,password=psswd, port=portssh, timeout=10)
     return conection
+
+
+
 def query_device(conection, command):
     stdin, stdout, stderr = conection.exec_command(command)
     return stdout.read().decode("utf-8")
+
+
 def get_list_users():
     return list_users
 
@@ -195,5 +200,8 @@ def datooss7():
     print("Séptimo json")
     print(jsonnn)
     return jsonify(jsonnn)
+
+
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0',debug=True, port=4001)
+
+    app.run(host= '0.0.0.0',debug=True, port=4000)

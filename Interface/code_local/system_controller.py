@@ -24,13 +24,6 @@ def system_message(id, message):
     cellphone_user = code_local.database_mysql.obtain_data_register(conection_db, 'cellphones', id)
     send_message(cellphone=f'{cellphone_user[2]}', server='ALMA', message=message)
 
-def send_message(cellphone, server, message):
-    WhasappMessageLocal = WhatsappService(cellphone, server)
-    if message is None:
-        WhasappMessageLocal.sendMessage('Mensaje de prueba')
-    else:
-        WhasappMessageLocal.sendMessage(message)
-
 def system_delete_cellphone(id):
     code_local.database_mysql.delete_record_db(conection_db, 'cellphones', id)
 
@@ -48,3 +41,10 @@ def system_insert_container(id, name):
 
 def system_delete_container(id):
     code_local.database_mysql.delete_record_db_container(conection_db, 'containers', id)
+
+def send_message(cellphone, server, message):
+    WhasappMessageLocal = WhatsappService(cellphone, server)
+    if message is None:
+        WhasappMessageLocal.sendMessage('Mensaje de prueba')
+    else:
+        WhasappMessageLocal.sendMessage(message)
